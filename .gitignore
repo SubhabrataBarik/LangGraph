@@ -1,0 +1,75 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+.eggs/
+build/
+dist/
+.pyc
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---------- Virtual environments ----------
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# ---------- Jupyter Notebooks ----------
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ---------- Environment & Secrets ----------
+.env
+.env.local
+.env.*.local
+*.env
+
+# ---------- Databases ----------
+*.db
+*.sqlite
+*.sqlite3
+chatbot.db
+
+# ---------- Logs ----------
+logs/
+*.log
+
+# ---------- IDE / Editor ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---------- OS ----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# ---------- Streamlit ----------
+.streamlit/secrets.toml
+
+# ---------- MCP / API Keys ----------
+mcp_config.json
+browser_mcp.json
+
+# ---------- Large / generated files ----------
+*.pdf
+installed_packages.txt
+Environment.txt

@@ -1,0 +1,11 @@
+langgraph
+langchain
+langchain-openai
+dotenv
+mcp-use
+asyncio
+langchain-mcp-adapters
+mcp
+
+
+# pip install streamlit langgraph langchain langchain-openai langchain-mcp-adapters python-dotenv
