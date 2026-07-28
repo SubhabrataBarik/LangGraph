@@ -1,11 +1,84 @@
-langgraph
-langchain
-langchain-openai
-dotenv
-mcp-use
-asyncio
-langchain-mcp-adapters
-mcp
+# ============================================================================
+# LangGraph learning workspace — consolidated Python dependencies
+# ============================================================================
+# This file is the single source of truth for `pip install`. Every package
+# below is imported by at least one .py or .ipynb file in this workspace
+# (verified 2026-07-28). Versions match the venv at
+# c:\Users\debab\Desktop\IIT+SELF LEARNING\CODING\LangGraph\env\ so a fresh
+# `pip install -r requirements.txt` reproduces the working environment.
+#
+# Usage:
+#     python -m venv env
+#     .\env\Scripts\activate          # Windows
+#     pip install -r requirements.txt
+#
+# Compatibility note:
+#     `langraph_rag_backend.py` does `from langchain.text_splitter import
+#     RecursiveCharacterTextSplitter`. That shim was removed in
+#     `langchain >= 1.0`. We pin `langchain<1.0` here so the shim survives.
+# ============================================================================
 
+# ---------- Core LLM orchestration ----------
+langgraph==1.2.9
+langgraph-prebuilt==1.1.0
+langgraph-checkpoint==4.1.1
+langgraph-checkpoint-sqlite==2.0.11
+langgraph-sdk==0.4.2
+langchain<1.0
+langchain-core==1.5.1
+langchain-community==0.3.29
+langchain-text-splitters==0.3.9
+langchain-openai==0.3.31
+langchain-protocol==0.0.18
+langsmith==0.4.16
 
-# pip install streamlit langgraph langchain langchain-openai langchain-mcp-adapters python-dotenv
+# ---------- LLM provider SDKs ----------
+openai==1.101.0
+
+# ---------- Configuration / env ----------
+python-dotenv==1.1.1
+pydantic==2.11.7
+pydantic-settings==2.10.1
+
+# ---------- Streamlit UIs (streamlit_frontend*.py + bwa_frontend.py) ----------
+streamlit==1.49.1
+pandas==2.3.2
+
+# ---------- Tool / RAG / search integrations ----------
+# FAISS is used by langraph_rag_backend.py — `langchain-community` only
+# re-exports it, so the native wheel must be installed explicitly.
+faiss-cpu>=1.8.0,<2.0
+# PyPDFLoader (langraph_rag_backend.py) needs pypdf.
+pypdf>=5.0,<6.0
+# DuckDuckGo search (no key required) — transitive dep of langchain-community,
+# pinned here for visibility because we use it in tool & MCP backends.
+duckduckgo-search>=6.0,<8.0
+# Tavily search (AI-Agent-Plans/tavily_test.ipynb). Requires TAVILY_API_KEY
+# in .env. `langchain-tavily` is the modern wrapper; `tavily-python` is its
+# transport dependency.
+tavily-python>=0.5.0,<1.0
+langchain-tavily==0.2.18
+# Google Gemini SDK (AI-Agent-Plans/bwa_backend.py uses `import google`).
+google-generativeai>=0.7,<1.0
+
+# ---------- Model Context Protocol (MCP) ----------
+langchain-mcp-adapters==0.1.10
+mcp==1.14.1
+mcp-use==1.3.10
+
+# ---------- Persistence / async / HTTP helpers ----------
+aiosqlite==0.21.0
+anyio==4.10.0
+httpx==0.28.1
+httpx-sse==0.4.1
+requests==2.32.5
+requests-toolbelt==1.0.0
+uvicorn==0.36.0
+
+# ---------- Misc utilities ----------
+tiktoken==0.11.0
+typing-extensions>=4.12
+# IPython is only used in notebook display cells (1_bmi_workflow.ipynb).
+# Already installed alongside Jupyter; pinned here for reproducibility.
+ipython>=8.0
+
